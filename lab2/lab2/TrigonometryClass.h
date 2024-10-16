@@ -3,6 +3,8 @@
 
 class TrigonometryClass {
 public:
-	double FuncA(double x);
+	// double x - argument of funciton
+	// n - number of elements in sequence
 
+	double FuncA(double x, int n);
 };
