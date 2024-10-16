@@ -4,7 +4,9 @@
 
 int main() {
 	TrigonometryClass trigonometry;
-	std::cout << trigonometry.FuncA();
+	double x;
+	std::cin >> x;
+	std::cout << trigonometry.FuncA(x);
 	return 0;
 }
 

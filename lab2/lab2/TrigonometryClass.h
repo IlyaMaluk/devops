@@ -3,6 +3,6 @@
 
 class TrigonometryClass {
 public:
-	int FuncA();
+	double FuncA(double x);
 
 };
