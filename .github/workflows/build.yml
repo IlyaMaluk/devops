@@ -19,7 +19,4 @@
          - name: Build
            run: |
              make
-         - name: Build Debian Package
-           run: |
-             debuild -us -uc
      
