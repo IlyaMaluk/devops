@@ -2,6 +2,7 @@
 #include <iostream>
 
 #define PI 3.14
+#define EPSILON 0.00001
 
 int main() {
     TrigonometryClass calc;
@@ -10,7 +11,7 @@ int main() {
     std::cout << "Enter value of x (|x| < pi/2): ";
     std::cin >> x;
 
-    if (abs(x) > PI / 2 - DBL_EPSILON) {
+    if (abs(x) > PI / 2 - EPSILON) {
         std::cout << "Invalid x" << std::endl;
         return 0;
     }
