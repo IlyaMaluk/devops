@@ -1,25 +1,29 @@
-     name: Build
+name: Build
 
-     on: [push, pull_request]
+on: [push, pull_request]
 
-     jobs:
-       build:
-         runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-         steps:
-         - uses: actions/checkout@v3
-         - name: Prepare Build Environment
-           run: |
-             sudo apt-get update
-             sudo apt-get install -y autotools-dev automake
-         - name: Generate Build System
-           run: |
-             autoreconf --install
-             ./configure
-         - name: Build
-           run: |
-             make
-         - name: Create Distribution Tarball
-           run: |
-             make dist
-     
+    steps:
+    - uses: actions/checkout@v3
+    - name: Prepare Build Environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y autotools-dev automake
+    - name: Generate Build System
+      run: |
+        autoreconf --install
+        ./configure
+    - name: Build
+      run: |
+        make
+    - name: Create Distribution Tarball
+      run: |
+        make dist
+    - name: Upload Distribution Tarball
+      uses: actions/upload-artifact@v3
+      with:
+        name: distribution-tarball
+        path: "*.tar.gz"
