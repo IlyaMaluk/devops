@@ -1,22 +1,26 @@
-     name: Build
+name: CI
 
-     on: [push, pull_request]
+on:
+  push:
+    branches:
+      - branchAutoTest
+  pull_request:
+    branches:
+      - branchAutoTest
 
-     jobs:
-       build:
-         runs-on: ubuntu-latest
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
 
-         steps:
-         - uses: actions/checkout@v3
-         - name: Prepare Build Environment
-           run: |
-             sudo apt-get update
-             sudo apt-get install -y autotools-dev automake devscripts debhelper
-         - name: Generate Build System
-           run: |
-             autoreconf --install
-             ./configure
-         - name: Build
-           run: |
-             make
-     
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install GCC
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+
+    - name: Compile UnitTest
+      run: g++ -o UnitTest lab2/lab2/UnitTest.cpp
+
+    - name: Run UnitTest
+      run: ./UnitTest
