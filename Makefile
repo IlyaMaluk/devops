@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++11
-SOURCES = main.cpp hello.cpp factorial.cpp
+SOURCES = lab2/lab2/main.cpp lab2/lab2/TrigonometryClass.cpp lab2/lab2/factorial.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 TARGET = my_program
 
