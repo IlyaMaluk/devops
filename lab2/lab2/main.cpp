@@ -1,27 +1,55 @@
-#include "TrigonometryClass.h"
-#include <iostream>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <signal.h>
+#include <stdlib.h>
+#include "Aztec.h"
 
-#define PI 3.14
-#define EPSILON 0.00001
+// Объявление функции создания сервера HTTP из вашего кода.
+int CreateHTTPserver();
 
-int main() {
-    TrigonometryClass calc;
-    double x;
-    int num_terms;
-    std::cout << "Enter value of x (|x| < pi/2): ";
-    std::cin >> x;
+void sigchldHandler(int s)
+{
+    printf("Caught signal SIGCHLD\n");
 
-    if (abs(x) > PI / 2 - EPSILON) {
-        std::cout << "Invalid x" << std::endl;
-        return 0;
+    pid_t pid;
+    int status;
+
+    while ((pid = waitpid(-1, &status, WNOHANG)) > 0)
+    {
+        if (WIFEXITED(status)) printf("\nChild process terminated");
     }
-
-    std::cout << "Enter number of terms (n): ";
-    std::cin >> num_terms;
-
-    double result = calc.FuncA(x, num_terms);
-
-    std::cout << "Approximated sec(" << x << ") using " << num_terms << " number of terms: " << result << std::endl;
-	return 0;
 }
 
+void sigintHandler(int s)
+{
+    printf("Caught signal %d. Starting graceful exit procedure\n", s);
+
+    pid_t pid;
+    int status;
+    while ((pid = waitpid(-1, &status, 0)) > 0)
+    {
+        if (WIFEXITED(status)) printf("\nChild process terminated");
+    }
+
+    if (pid == -1) printf("\nAll child processes terminated");
+
+    exit(EXIT_SUCCESS);
+}
+
+int main(int argc, char* argv[])
+{
+    signal(SIGCHLD, sigchldHandler);
+    signal(SIGINT, sigintHandler);
+
+    Aztec aztec;
+
+    aztec.AddString("The first string");
+    aztec.AddString("The second string");
+
+    aztec.ShowText();
+
+    // Запуск HTTP-сервера
+    CreateHTTPserver();
+
+    return 0;
+}
