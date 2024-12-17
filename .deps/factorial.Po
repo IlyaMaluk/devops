@@ -1,0 +1,4 @@
+factorial.o: lab2/lab2/factorial.cpp /usr/include/stdc-predef.h \
+ lab2/lab2/factorial.h
+/usr/include/stdc-predef.h:
+lab2/lab2/factorial.h:
