@@ -1,7 +1,8 @@
 FROM alpine AS build
 RUN apk add --no-cache build-base automake autoconf libtool
 WORKDIR /home/myprogram
-COPY . .
+RUN git clone https://github.com/IlyaMaluk/devops.git .
+WORKDIR /home/myprogram/devops
 RUN autoreconf -i
 RUN chmod +x configure
 RUN ./configure
