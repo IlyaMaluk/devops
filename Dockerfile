@@ -2,8 +2,8 @@ FROM alpine AS build
 RUN apk add --no-cache build-base automake autoconf
 WORKDIR /home/myprogram
 COPY . .
-RUN ./configure
 RUN chmod +x configure
+RUN ./configure
 RUN autoreconf -i
 RUN make
 
