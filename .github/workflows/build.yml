@@ -1,6 +1,11 @@
      name: Build
 
-     on: [push, pull_request]
+     on: 
+          push: 
+           branches: [ "branchAutoPackage" ]
+          pull_request:
+           branches: [ "branchAutoPackage" ]
+
 
      jobs:
        build:
@@ -17,7 +22,7 @@
            run: |
              aclocal
              autoconf
-             automake --add-missing -foreign
+             automake --add-missing
              autoreconf --install
              ./configure
          - name: Build
