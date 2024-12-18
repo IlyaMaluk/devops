@@ -9,7 +9,7 @@ RUN ./configure
 RUN make
 
 FROM alpine 
-COPY --from=build /home/myprogram/my_program /usr/local/bin/my_program
+COPY --from=build /home/myprogram/devops/my_program /usr/local/bin/my_program
 ENTRYPOINT ["/usr/local/bin/my_program"]
 
 
