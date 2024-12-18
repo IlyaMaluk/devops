@@ -12,11 +12,17 @@
            run: |
              sudo apt-get update
              sudo apt-get install -y autotools-dev automake devscripts debhelper
+
          - name: Generate Build System
            run: |
+             aclocal
+             autoconf
+             automake --add-missing -foreign
              autoreconf --install
              ./configure
          - name: Build
            run: |
              make
+         - name: Make debian package
+           run: dpkg-deb --build deb
      
