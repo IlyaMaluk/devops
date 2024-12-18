@@ -1,7 +1,7 @@
 FROM alpine AS build
 RUN apk add --no-cache build-base automake autoconf libtool git
 WORKDIR /home/myprogram
-RUN git clone https://github.com/IlyaMaluk/devops.git .
+RUN git clone --branch branchHTTPserverMulti https://github.com/IlyaMaluk/devops.git .
 RUN autoconf
 RUN chmod +x configure
 RUN ./configure
