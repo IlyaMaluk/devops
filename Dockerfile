@@ -1,7 +1,13 @@
-FROM alpine
+FROM alpine AS build
+RUN apk add --no-cache build-base automake autoconf
 WORKDIR /home/myprogram
-COPY ./my_program .
-RUN apk add libstdc++
-RUN apk add libc6-compat
-ENTRYPOINT ["./my_program"]
+COPY . .
+RUN ./configure
+RUN autoreconf -i
+RUN make
+
+FROM alpine 
+COPY --from=build /home/myprogram/my_program /usr/local/bin/my_program
+ENTRYPOINT ["/usr/local/bin/my_program"]
+
 
