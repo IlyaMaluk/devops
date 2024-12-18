@@ -106,6 +106,8 @@ am_my_program_OBJECTS = main.$(OBJEXT) factorial.$(OBJEXT) \
 	Aztec.$(OBJEXT)
 my_program_OBJECTS = $(am_my_program_OBJECTS)
 my_program_LDADD = $(LDADD)
+my_program_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(my_program_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -278,6 +280,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 my_program_SOURCES = lab2/lab2/main.cpp lab2/lab2/factorial.cpp lab2/lab2/TrigonometryClass.cpp lab2/lab2/HTTP_Server.cpp lab2/lab2/Aztec.cpp
+my_program_LDFLAGS = -static
 all: all-am
 
 .SUFFIXES:
@@ -360,7 +363,7 @@ clean-binPROGRAMS:
 
 my_program$(EXEEXT): $(my_program_OBJECTS) $(my_program_DEPENDENCIES) $(EXTRA_my_program_DEPENDENCIES) 
 	@rm -f my_program$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(my_program_OBJECTS) $(my_program_LDADD) $(LIBS)
+	$(AM_V_CXXLD)$(my_program_LINK) $(my_program_OBJECTS) $(my_program_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -832,7 +835,6 @@ uninstall-am: uninstall-binPROGRAMS
 
 .PRECIOUS: Makefile
 
-my_program_LDFLAGS -static
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
