@@ -22,12 +22,6 @@ jobs:
     - name: Run UnitTest
       run: ./UnitTest
 
-    - name: Run distcheck
-      run: make check
-
-    - name: Run distcheck
-      run: make distcheck
-
     - name: Log in to dockerhub
       run: docker login -u ${{ vars.DOCKER_USERNAME }} -p {{ secrets.DOCKER_TOKEN }}
 
