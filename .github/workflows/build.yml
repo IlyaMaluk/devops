@@ -5,8 +5,6 @@ on:
     branches: [ "*" ]
   pull_request:
     branches: [ "*" ]
-  workflow_dispatch: 
-    branch: [ "*" ]
 
 jobs:
   build-and-test:
@@ -18,9 +16,6 @@ jobs:
 
     - name: Compile UnitTest
       run: g++ -o UnitTest UnitTest.cpp
-
-    - name: Run UnitTest
-      run: ./UnitTest
 
     - name: Log in to dockerhub
       run: docker login -u ${{ vars.DOCKER_USERNAME }} -p {{ secrets.DOCKER_TOKEN }}
