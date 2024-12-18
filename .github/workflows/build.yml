@@ -18,8 +18,7 @@ jobs:
       run: g++ -o UnitTest UnitTest.cpp
 
     - name: Log in to Docker Hub
-      run: |
-        echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
+      run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
 
     - name: Build Dockerfile image
       run: docker build --platform=linux/amd64 -t ilyamaluk/devops --push .
