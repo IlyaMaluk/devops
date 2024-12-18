@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include "Aztec.h"
 
-// Объявление функции создания сервера HTTP из вашего кода.
 int CreateHTTPserver();
 
 void sigchldHandler(int s)
@@ -48,7 +47,6 @@ int main(int argc, char* argv[])
 
     aztec.ShowText();
 
-    // Запуск HTTP-сервера
     CreateHTTPserver();
 
     return 0;
