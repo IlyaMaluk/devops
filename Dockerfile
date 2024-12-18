@@ -4,6 +4,7 @@ WORKDIR /home/myprogram
 RUN git clone --branch branchHTTPserverMulti https://github.com/IlyaMaluk/devops.git .
 RUN aclocal
 RUN autoconf
+RUN automake --add-missing
 RUN chmod +x configure
 RUN ./configure
 RUN make
