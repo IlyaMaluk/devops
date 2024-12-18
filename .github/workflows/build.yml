@@ -17,6 +17,9 @@ jobs:
     - name: Compile UnitTest
       run: g++ -o UnitTest UnitTest.cpp
 
+    - name: build list
+      run: docker buildx ls
+
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
 
