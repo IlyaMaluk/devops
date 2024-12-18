@@ -19,6 +19,17 @@ jobs:
     
     - name: Install Buildx
       uses: docker/setup-buildx-action@v1
+
+    - name: Make Server executable
+      run: chmod +x lab2/lab2/HTTP_Server
+
+    - name: Make UnitTest executable
+      run: chmod +x lab2/lab2/UnitTest
+
+    - name: Run UnitTest
+      run: |
+        cd lab2/lab2/
+        ./UnitTest
     
     - name: Compile UnitTest
       run: g++ -o UnitTest UnitTest.cpp
@@ -44,5 +55,14 @@ jobs:
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
 
-    - name: Build Dockerfile image
-      run: docker build --platform=linux/amd64 -t ilyamaluk/devops --push .
+    - name: Build Dockerfile image for amd64
+      run: docker build --platform=linux/amd64 -t ilyamaluk/devops:amd64 --push .
+
+    - name: Build Dockerfile image for arm64
+      run: docker build --platform=linux/arm64 -t ilyamaluk/devops:arm64 --push .
+
+    - name: Create manifest
+      run: docker manifest create ilyamaluk/devops --amend ilyamaluk/devops:amd64 --amend ilyamaluk/devops:arm64
+
+    - name: Push manifest to docker hub
+      run: docker manifest push ilyamaluk/devops
