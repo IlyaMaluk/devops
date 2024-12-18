@@ -2,11 +2,11 @@ name: CI
 
 on:
   push:
-    branches:
-      - branchAutoTest
+    branches: [ "*" ]
   pull_request:
-    branches:
-      - branchAutoTest
+    branches: [ "*" ]
+  workflow_dispatch: 
+    branch: [ "*" ]
 
 jobs:
   build-and-test:
@@ -16,11 +16,23 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install GCC
-      run: sudo apt-get update && sudo apt-get install -y build-essential
-
+    - name: ./configure
+      run: ./configure
+      
     - name: Compile UnitTest
       run: g++ -o UnitTest UnitTest.cpp
 
     - name: Run UnitTest
       run: ./UnitTest
+
+    - name: Run distcheck
+      run: make check
+
+    - name: Run distcheck
+      run: make distcheck
+
+    - name: Log in to dockerhub
+      run: docker login -u ${{ vars.DOCKER_USERNAME }} -p {{ secrets.DOCKER_TOKEN }}
+
+    - name: Build Dockerfile image
+      run: docker build --platform=linux/amd64 -t ilyamaluk/devops --push .
