@@ -201,7 +201,7 @@ CPPFLAGS =
 CSCOPE = cscope
 CTAGS = ctags
 CXX = g++
-CXXDEPMODE = depmode=none
+CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"my_program\" -DPACKAGE_TARNAME=\"my_program\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"my_program\ 1.0\" -DPACKAGE_BUGREPORT=\"321ilia465@gmail.com\" -DPACKAGE_URL=\"\" -DPACKAGE=\"my_program\" -DVERSION=\"1.0\"
@@ -384,88 +384,88 @@ $(am__depfiles_remade):
 am--depfiles: $(am__depfiles_remade)
 
 .cpp.o:
-#	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-	$(AM_V_CXX)source='$<' object='$@' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
+	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	$(AM_V_CXX)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
 
 .cpp.obj:
-#	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
-	$(AM_V_CXX)source='$<' object='$@' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	$(AM_V_CXX)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 main.o: lab2/lab2/main.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.o -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.o `test -f 'lab2/lab2/main.cpp' || echo '$(srcdir)/'`lab2/lab2/main.cpp
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
-	$(AM_V_CXX)source='lab2/lab2/main.cpp' object='main.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.o `test -f 'lab2/lab2/main.cpp' || echo '$(srcdir)/'`lab2/lab2/main.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.o -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.o `test -f 'lab2/lab2/main.cpp' || echo '$(srcdir)/'`lab2/lab2/main.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
+#	$(AM_V_CXX)source='lab2/lab2/main.cpp' object='main.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.o `test -f 'lab2/lab2/main.cpp' || echo '$(srcdir)/'`lab2/lab2/main.cpp
 
 main.obj: lab2/lab2/main.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.obj -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.obj `if test -f 'lab2/lab2/main.cpp'; then $(CYGPATH_W) 'lab2/lab2/main.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/main.cpp'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
-	$(AM_V_CXX)source='lab2/lab2/main.cpp' object='main.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'lab2/lab2/main.cpp'; then $(CYGPATH_W) 'lab2/lab2/main.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/main.cpp'; fi`
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.obj -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.obj `if test -f 'lab2/lab2/main.cpp'; then $(CYGPATH_W) 'lab2/lab2/main.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/main.cpp'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
+#	$(AM_V_CXX)source='lab2/lab2/main.cpp' object='main.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'lab2/lab2/main.cpp'; then $(CYGPATH_W) 'lab2/lab2/main.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/main.cpp'; fi`
 
 factorial.o: lab2/lab2/factorial.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT factorial.o -MD -MP -MF $(DEPDIR)/factorial.Tpo -c -o factorial.o `test -f 'lab2/lab2/factorial.cpp' || echo '$(srcdir)/'`lab2/lab2/factorial.cpp
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/factorial.Tpo $(DEPDIR)/factorial.Po
-	$(AM_V_CXX)source='lab2/lab2/factorial.cpp' object='factorial.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o factorial.o `test -f 'lab2/lab2/factorial.cpp' || echo '$(srcdir)/'`lab2/lab2/factorial.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT factorial.o -MD -MP -MF $(DEPDIR)/factorial.Tpo -c -o factorial.o `test -f 'lab2/lab2/factorial.cpp' || echo '$(srcdir)/'`lab2/lab2/factorial.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/factorial.Tpo $(DEPDIR)/factorial.Po
+#	$(AM_V_CXX)source='lab2/lab2/factorial.cpp' object='factorial.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o factorial.o `test -f 'lab2/lab2/factorial.cpp' || echo '$(srcdir)/'`lab2/lab2/factorial.cpp
 
 factorial.obj: lab2/lab2/factorial.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT factorial.obj -MD -MP -MF $(DEPDIR)/factorial.Tpo -c -o factorial.obj `if test -f 'lab2/lab2/factorial.cpp'; then $(CYGPATH_W) 'lab2/lab2/factorial.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/factorial.cpp'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/factorial.Tpo $(DEPDIR)/factorial.Po
-	$(AM_V_CXX)source='lab2/lab2/factorial.cpp' object='factorial.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o factorial.obj `if test -f 'lab2/lab2/factorial.cpp'; then $(CYGPATH_W) 'lab2/lab2/factorial.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/factorial.cpp'; fi`
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT factorial.obj -MD -MP -MF $(DEPDIR)/factorial.Tpo -c -o factorial.obj `if test -f 'lab2/lab2/factorial.cpp'; then $(CYGPATH_W) 'lab2/lab2/factorial.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/factorial.cpp'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/factorial.Tpo $(DEPDIR)/factorial.Po
+#	$(AM_V_CXX)source='lab2/lab2/factorial.cpp' object='factorial.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o factorial.obj `if test -f 'lab2/lab2/factorial.cpp'; then $(CYGPATH_W) 'lab2/lab2/factorial.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/factorial.cpp'; fi`
 
 TrigonometryClass.o: lab2/lab2/TrigonometryClass.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TrigonometryClass.o -MD -MP -MF $(DEPDIR)/TrigonometryClass.Tpo -c -o TrigonometryClass.o `test -f 'lab2/lab2/TrigonometryClass.cpp' || echo '$(srcdir)/'`lab2/lab2/TrigonometryClass.cpp
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/TrigonometryClass.Tpo $(DEPDIR)/TrigonometryClass.Po
-	$(AM_V_CXX)source='lab2/lab2/TrigonometryClass.cpp' object='TrigonometryClass.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TrigonometryClass.o `test -f 'lab2/lab2/TrigonometryClass.cpp' || echo '$(srcdir)/'`lab2/lab2/TrigonometryClass.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TrigonometryClass.o -MD -MP -MF $(DEPDIR)/TrigonometryClass.Tpo -c -o TrigonometryClass.o `test -f 'lab2/lab2/TrigonometryClass.cpp' || echo '$(srcdir)/'`lab2/lab2/TrigonometryClass.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/TrigonometryClass.Tpo $(DEPDIR)/TrigonometryClass.Po
+#	$(AM_V_CXX)source='lab2/lab2/TrigonometryClass.cpp' object='TrigonometryClass.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TrigonometryClass.o `test -f 'lab2/lab2/TrigonometryClass.cpp' || echo '$(srcdir)/'`lab2/lab2/TrigonometryClass.cpp
 
 TrigonometryClass.obj: lab2/lab2/TrigonometryClass.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TrigonometryClass.obj -MD -MP -MF $(DEPDIR)/TrigonometryClass.Tpo -c -o TrigonometryClass.obj `if test -f 'lab2/lab2/TrigonometryClass.cpp'; then $(CYGPATH_W) 'lab2/lab2/TrigonometryClass.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/TrigonometryClass.cpp'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/TrigonometryClass.Tpo $(DEPDIR)/TrigonometryClass.Po
-	$(AM_V_CXX)source='lab2/lab2/TrigonometryClass.cpp' object='TrigonometryClass.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TrigonometryClass.obj `if test -f 'lab2/lab2/TrigonometryClass.cpp'; then $(CYGPATH_W) 'lab2/lab2/TrigonometryClass.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/TrigonometryClass.cpp'; fi`
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TrigonometryClass.obj -MD -MP -MF $(DEPDIR)/TrigonometryClass.Tpo -c -o TrigonometryClass.obj `if test -f 'lab2/lab2/TrigonometryClass.cpp'; then $(CYGPATH_W) 'lab2/lab2/TrigonometryClass.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/TrigonometryClass.cpp'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/TrigonometryClass.Tpo $(DEPDIR)/TrigonometryClass.Po
+#	$(AM_V_CXX)source='lab2/lab2/TrigonometryClass.cpp' object='TrigonometryClass.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TrigonometryClass.obj `if test -f 'lab2/lab2/TrigonometryClass.cpp'; then $(CYGPATH_W) 'lab2/lab2/TrigonometryClass.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/TrigonometryClass.cpp'; fi`
 
 HTTP_Server.o: lab2/lab2/HTTP_Server.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT HTTP_Server.o -MD -MP -MF $(DEPDIR)/HTTP_Server.Tpo -c -o HTTP_Server.o `test -f 'lab2/lab2/HTTP_Server.cpp' || echo '$(srcdir)/'`lab2/lab2/HTTP_Server.cpp
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/HTTP_Server.Tpo $(DEPDIR)/HTTP_Server.Po
-	$(AM_V_CXX)source='lab2/lab2/HTTP_Server.cpp' object='HTTP_Server.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o HTTP_Server.o `test -f 'lab2/lab2/HTTP_Server.cpp' || echo '$(srcdir)/'`lab2/lab2/HTTP_Server.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT HTTP_Server.o -MD -MP -MF $(DEPDIR)/HTTP_Server.Tpo -c -o HTTP_Server.o `test -f 'lab2/lab2/HTTP_Server.cpp' || echo '$(srcdir)/'`lab2/lab2/HTTP_Server.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/HTTP_Server.Tpo $(DEPDIR)/HTTP_Server.Po
+#	$(AM_V_CXX)source='lab2/lab2/HTTP_Server.cpp' object='HTTP_Server.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o HTTP_Server.o `test -f 'lab2/lab2/HTTP_Server.cpp' || echo '$(srcdir)/'`lab2/lab2/HTTP_Server.cpp
 
 HTTP_Server.obj: lab2/lab2/HTTP_Server.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT HTTP_Server.obj -MD -MP -MF $(DEPDIR)/HTTP_Server.Tpo -c -o HTTP_Server.obj `if test -f 'lab2/lab2/HTTP_Server.cpp'; then $(CYGPATH_W) 'lab2/lab2/HTTP_Server.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/HTTP_Server.cpp'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/HTTP_Server.Tpo $(DEPDIR)/HTTP_Server.Po
-	$(AM_V_CXX)source='lab2/lab2/HTTP_Server.cpp' object='HTTP_Server.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o HTTP_Server.obj `if test -f 'lab2/lab2/HTTP_Server.cpp'; then $(CYGPATH_W) 'lab2/lab2/HTTP_Server.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/HTTP_Server.cpp'; fi`
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT HTTP_Server.obj -MD -MP -MF $(DEPDIR)/HTTP_Server.Tpo -c -o HTTP_Server.obj `if test -f 'lab2/lab2/HTTP_Server.cpp'; then $(CYGPATH_W) 'lab2/lab2/HTTP_Server.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/HTTP_Server.cpp'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/HTTP_Server.Tpo $(DEPDIR)/HTTP_Server.Po
+#	$(AM_V_CXX)source='lab2/lab2/HTTP_Server.cpp' object='HTTP_Server.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o HTTP_Server.obj `if test -f 'lab2/lab2/HTTP_Server.cpp'; then $(CYGPATH_W) 'lab2/lab2/HTTP_Server.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/HTTP_Server.cpp'; fi`
 
 Aztec.o: lab2/lab2/Aztec.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Aztec.o -MD -MP -MF $(DEPDIR)/Aztec.Tpo -c -o Aztec.o `test -f 'lab2/lab2/Aztec.cpp' || echo '$(srcdir)/'`lab2/lab2/Aztec.cpp
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/Aztec.Tpo $(DEPDIR)/Aztec.Po
-	$(AM_V_CXX)source='lab2/lab2/Aztec.cpp' object='Aztec.o' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Aztec.o `test -f 'lab2/lab2/Aztec.cpp' || echo '$(srcdir)/'`lab2/lab2/Aztec.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Aztec.o -MD -MP -MF $(DEPDIR)/Aztec.Tpo -c -o Aztec.o `test -f 'lab2/lab2/Aztec.cpp' || echo '$(srcdir)/'`lab2/lab2/Aztec.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/Aztec.Tpo $(DEPDIR)/Aztec.Po
+#	$(AM_V_CXX)source='lab2/lab2/Aztec.cpp' object='Aztec.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Aztec.o `test -f 'lab2/lab2/Aztec.cpp' || echo '$(srcdir)/'`lab2/lab2/Aztec.cpp
 
 Aztec.obj: lab2/lab2/Aztec.cpp
-#	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Aztec.obj -MD -MP -MF $(DEPDIR)/Aztec.Tpo -c -o Aztec.obj `if test -f 'lab2/lab2/Aztec.cpp'; then $(CYGPATH_W) 'lab2/lab2/Aztec.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/Aztec.cpp'; fi`
-#	$(AM_V_at)$(am__mv) $(DEPDIR)/Aztec.Tpo $(DEPDIR)/Aztec.Po
-	$(AM_V_CXX)source='lab2/lab2/Aztec.cpp' object='Aztec.obj' libtool=no \
-	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Aztec.obj `if test -f 'lab2/lab2/Aztec.cpp'; then $(CYGPATH_W) 'lab2/lab2/Aztec.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/Aztec.cpp'; fi`
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Aztec.obj -MD -MP -MF $(DEPDIR)/Aztec.Tpo -c -o Aztec.obj `if test -f 'lab2/lab2/Aztec.cpp'; then $(CYGPATH_W) 'lab2/lab2/Aztec.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/Aztec.cpp'; fi`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/Aztec.Tpo $(DEPDIR)/Aztec.Po
+#	$(AM_V_CXX)source='lab2/lab2/Aztec.cpp' object='Aztec.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Aztec.obj `if test -f 'lab2/lab2/Aztec.cpp'; then $(CYGPATH_W) 'lab2/lab2/Aztec.cpp'; else $(CYGPATH_W) '$(srcdir)/lab2/lab2/Aztec.cpp'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
