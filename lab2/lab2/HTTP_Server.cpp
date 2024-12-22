@@ -140,7 +140,7 @@ int CreateHTTPserver()
                     auto t1 = std::chrono::high_resolution_clock::now();
 
 
-                    int N = 65000; 
+                    int N = 80000; 
                     int n_terms = 500; 
                     double x = 1.0; 
 
