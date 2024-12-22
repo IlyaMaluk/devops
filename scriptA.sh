@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Function to start a container with specified name and CPU core
 start_container() {
     local name=$1
     local cpu=$2
@@ -17,7 +16,6 @@ start_container() {
     fi
 }
 
-# Function to check if a container is busy based on CPU usage
 is_container_busy() {
     local container=$1
     echo "$(date) - Checking if $container is busy..."
@@ -33,7 +31,6 @@ is_container_busy() {
     fi
 }
 
-# Cleanup function to stop and remove containers on script termination
 cleanup() {
     echo "$(date) - Script termination detected. Initiating cleanup..."
     for container in srv1 srv2 srv3; do
@@ -51,10 +48,8 @@ cleanup() {
     exit 0
 }
 
-# Trap SIGINT and SIGTERM to trigger cleanup
 trap cleanup SIGINT SIGTERM
 
-# Function to get CPU core based on container name
 get_cpu_core() {
     case $1 in
         srv1) echo 0 ;;
@@ -64,10 +59,8 @@ get_cpu_core() {
     esac
 }
 
-# Initialize by starting srv1
 start_container "srv1" 0
 
-# Initialize counters
 declare -A busy_count idle_count
 
 while true; do
@@ -75,8 +68,6 @@ while true; do
     echo "$(date) - Starting a new monitoring cycle..."
 
     sleep 60
-
-    # Array of containers in order
     containers=(srv1 srv2 srv3)
 
     for i in "${!containers[@]}"; do
@@ -103,13 +94,11 @@ while true; do
             else
                 busy_count["$container"]=0
                 idle_count["$container"]=$(( ${idle_count["$container"]:-0} + 1 ))
-                # Handle idle logic only for srv2 and srv3
                 if [[ "$container" == "srv2" || "$container" == "srv3" ]]; then
                     if [ "${idle_count["$container"]}" -ge 2 ]; then
                         echo "$(date) - $container has been idle for 2 consecutive checks. Stopping..."
                         docker stop "$container" && docker rm "$container"
                         echo "$(date) - $container stopped and removed due to inactivity."
-                        # Reset counts
                         busy_count["$container"]=0
                         idle_count["$container"]=0
                     fi
@@ -132,7 +121,6 @@ while true; do
                 cpu_core=$(get_cpu_core "$container")
                 start_container "$container" "$cpu_core"
                 echo "$(date) - $container updated."
-                # Optionally, wait until the container is up before proceeding
                 sleep 5
             else
                 echo "$(date) - $container is not running. Skipping update."
